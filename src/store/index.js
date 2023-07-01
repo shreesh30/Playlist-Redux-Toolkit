@@ -9,14 +9,16 @@ const songSlice = createSlice({
     },
     removeSong(state, action) {
       state.pop(action.payload);
-    }
-  }
+    },
+  },
 });
 
 const store = configureStore({
   reducer: {
-    songs: songSlice.reducer
-  }
+    songs: songSlice.reducer,
+  },
 });
+console.log(songSlice.actions);
 
 export { store };
+export const { addSong } = songSlice.actions;

@@ -1,18 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
 import { createRandomSong } from "../data";
+import { addSong } from "../store";
 
 function SongPlaylist() {
-  // To Do:
-  // Get list of songs
-  const songPlaylist = [];
+  // useDispatch() - hook used to use the dispatch function inside the component where we want to change the state
+  const dispatch = useDispatch();
+
+  // useSelector() - For accessing the "songs" state from the store defined in the index.js
+  // Here the state is the whole state object available in the redux store and then we are selecting the songs array state by
+  // doing state.songs
+  const songPlaylist = useSelector((state) => {
+    console.log(state);
+    return state.songs;
+  });
 
   const handleSongAdd = (song) => {
-    // To Do:
-    // Add song to list of songs
+    dispatch(addSong(song));
   };
-  const handleSongRemove = (song) => {
-    // To Do:
-    // Remove song from list of songs
-  };
+  const handleSongRemove = (song) => {};
 
   const renderedSongs = songPlaylist.map((song) => {
     return (
