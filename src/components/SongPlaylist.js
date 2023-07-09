@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createRandomSong } from "../data";
-import { addSong } from "../store";
+import { addSong, removeSong } from "../store";
 
 function SongPlaylist() {
   // useDispatch() - hook used to use the dispatch function inside the component where we want to change the state
@@ -10,14 +10,16 @@ function SongPlaylist() {
   // Here the state is the whole state object available in the redux store and then we are selecting the songs array state by
   // doing state.songs
   const songPlaylist = useSelector((state) => {
-    console.log(state);
     return state.songs;
   });
 
   const handleSongAdd = (song) => {
     dispatch(addSong(song));
   };
-  const handleSongRemove = (song) => {};
+
+  const handleSongRemove = (song) => {
+    dispatch(removeSong(song));
+  };
 
   const renderedSongs = songPlaylist.map((song) => {
     return (
