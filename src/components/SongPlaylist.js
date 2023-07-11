@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createRandomSong } from "../data";
-import { addSong, removeSong } from "../store";
+import { addSong, removeSong } from "../store/index";
 
 function SongPlaylist() {
   // useDispatch() - hook used to use the dispatch function inside the component where we want to change the state
